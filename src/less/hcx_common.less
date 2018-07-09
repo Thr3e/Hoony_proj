@@ -1,0 +1,90 @@
+@spr_img:url('../images/common/sprites.png');
+
+#header {
+    .banner-wrap{
+        width: 100%;
+        height: 300px;
+        background: url('../images/common/bg_header.jpg') no-repeat center center;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: @spr_img no-repeat;
+        }
+        .contact-us {
+            width: 221px;
+            height: 53px;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            z-index: 3;
+            a{
+                background-position: 0px -138px;
+                &:hover{
+                    background-position: 0px -191px;    
+                }
+            }
+        }
+        .title-logo {
+            width: 286px;
+            height: 83px;
+            text-align: center;
+            margin: 100px auto;
+            a{
+                background-position: -2px -45px;
+            }
+            .selector{
+                outline: 0;
+                border: 1px solid #333333;
+                width: 60%;
+                height: 40px;
+                font-size: 20px;
+                margin: 30px auto;
+                option{
+                    padding: 20px;
+                }
+            }
+        }
+        .carts-login{
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 78px;
+            right: 10px;
+            z-index: 3;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a.login{
+                width: 105px;
+                height: 37px;
+                background-position: -230px -146px;
+                &:hover{
+                    background-position: -230px -183px;
+                }
+            }
+            a.carts{
+                width: 54px;
+                height: 54px;
+                background-position: -21px -377px;
+                &:hover{
+                    background-position: -21px -434px;
+                }
+            }
+            i{
+                width: 2px;
+                height: 34px;
+                background: #333333;
+                margin: 10px 20px;
+            }
+        }
+    }
+}
+
+#footer{
+
+}
+

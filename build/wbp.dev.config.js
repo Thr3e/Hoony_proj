@@ -66,8 +66,7 @@ module.exports = {
     },
     resolve:{
         alias:{
-            'Router':path.resolve(__dirname, '../src/js/router.js'),
-            'FileName':path.resolve(__dirname, './filename.config.js')
+            'Router':path.resolve(__dirname, '../src/js/router.js')
         }
     }
 }

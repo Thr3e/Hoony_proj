@@ -1,13 +1,12 @@
-const fileName = require('../build/filename.config')
 
 exports.config = {
-    main: './src/js/'+ fileName.config.indexJs,
-    beds: './src/js/'+ fileName.config.bedsJs,
-    tables: './src/js/'+ fileName.config.tablesJs,
-    carts: './src/js/'+ fileName.config.cartsJs,
-    more: './src/js/'+ fileName.config.moreJs,
-    sofas: './src/js/'+ fileName.config.sofasJs,
-    storage: './src/js/'+ fileName.config.storageJs,
-    login: './src/js/'+ fileName.config.loginJs,
-    userinfo: './src/js/'+ fileName.config.userinfoJs,
+    main: './src/js/index.js',
+    beds: './src/js/beds.js',
+    tables: './src/js/tables.js',
+    carts: './src/js/carts.js',
+    more: './src/js/more.js',
+    sofas: './src/js/sofas.js',
+    storage: './src/js/storage.js',
+    login: './src/js/login.js',
+    userinfo: './src/js/userinfo.js',
 }

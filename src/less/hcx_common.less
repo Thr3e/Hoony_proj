@@ -1,7 +1,10 @@
 @spr_img:url('../images/common/sprites.png');
+@main-color:#555;
+@white-color:#f4f4f4;
+@gray-color:#b6b7b8;
 
 #header {
-    .banner-wrap{
+    .banner-title{
         width: 100%;
         height: 300px;
         background: url('../images/common/bg_header.jpg') no-repeat center center;
@@ -38,7 +41,7 @@
             }
             .selector{
                 outline: 0;
-                border: 1px solid #333333;
+                border: 1px solid @main-color;
                 width: 60%;
                 height: 40px;
                 font-size: 20px;
@@ -77,14 +80,222 @@
             i{
                 width: 2px;
                 height: 34px;
-                background: #333333;
+                background: @main-color;
                 margin: 10px 20px;
+            }
+        }
+    }
+    .banner-list{
+        border-top: @main-color 1px solid;
+        border-bottom: @main-color 1px solid;
+        text-align: center;
+        .menu-list{
+            width: 80%;
+            .list-item{
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                cursor: pointer;
+                color: @main-color;
+                line-height: 51px;
+                font-size: 18px;
+                text-align: left;
+                padding: 0 16px;
+                margin-top: -1px;
+                margin-right: 40px;
+                border: transparent 1px solid;
+                border-bottom: 0;
+                box-sizing: border-box;
+                a.list-title{
+                    transition: border .35s linear;
+                    border-bottom: transparent 1px solid;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+                &:hover{
+                    border-color: @main-color;
+                    a.list-title{
+                        color: #d8170e;
+                        border-color: #d8170e;
+                    }
+                    ul{
+                        display: block;
+                    }
+                }
+                ul{
+                    width: 100%;
+                    display: none;
+                    padding: 16px 0;
+                    background: #fff;
+                    border: @main-color 1px solid;
+                    border-top: 0;
+                    position: absolute;
+                    top: 100%;
+                    left: -1px;
+                    li {
+                        height: 32px;
+                    }
+                    a{
+                        color: @main-color;
+                        text-align: center;
+                        height: 32px;
+                        line-height: 32px;
+                        font-size: 14px;
+                        &:hover{
+                            color: #d8170e;
+                        }
+                        &.col_1{
+                            width: 100%;
+                        }
+                        &.col_2{
+                            width: 50%;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        .search-bar{
+            position: relative;
+            width: 126px;
+            height: 34px;
+            margin-top: 9px;
+            .search-ipt{
+                width: 100%;
+                height: 100%;
+                background-color: #ffffff;
+                border: 1px solid #bfbfbe;
+                outline: none;
+                padding-left: 10px;
+                font-family: "微软雅黑";
+                font-size: 15px;
+                color: #555;
+                box-sizing: border-box;
+            }
+            i{
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: @spr_img no-repeat;
+                width: 34px;
+                height: 34px;
+                background-position: -298px -43px;
+                margin-left: -34px;
+                cursor: pointer;
+                &:hover{
+                    background-position: -298px -77px;
+                }
             }
         }
     }
 }
 
 #footer{
-
+    background: @white-color;
+    text-align: center;
+    .foot-title{
+        background: #82c353;
+        width: 100%;
+        line-height: 76px;
+        font-size: 22px;
+        color: @white-color;
+        letter-spacing: 8px;
+    }
+    i{
+        background: @spr_img no-repeat;
+    }
+    .slogen{
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+        i{
+            display: block;
+            background-position: -345px -134px;
+            color: @white-color;
+            width: 84px;
+            line-height: 97px;
+            font-size: 24px;
+            font-style: normal;
+        }
+        span{
+            line-height: 14px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 6px;
+            color: @gray-color;
+        }
+    }
+    .info-list{    
+        overflow: hidden;
+        margin-top: 36px;
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+        .li{
+            border-left: @gray-color solid 1px;
+            width: auto;
+            height: 120px;
+            padding: 0 41px 0 47px;
+            vertical-align: middle;
+            text-align: left;
+            &:last-child{   
+                border-right: @gray-color solid 1px;
+            }
+            .info-title{
+                font: bold 16px/22px "微软雅黑";
+                margin-top: 4px;
+                margin-bottom: 14px;
+            }
+            .social-title,
+            .info-links p{
+                font-size: 12px;
+                font-family: "微软雅黑";
+                color: #666;
+            }
+            a{
+                display: inline-block;
+                font-size: 12px;
+                font-family: "微软雅黑";
+                color: #666;
+                &:hover{
+                    color:#333;
+                }
+            }
+            i{
+                &.social-icon{
+                    display: inline-block;
+                    width: 26px;
+                    height: 27px;
+                    vertical-align: middle;
+                }
+                &.qrcode{
+                    display: block;
+                    width: 86px;
+                    height: 86px;
+                    margin-left: 36px;
+                }
+                &.weibo-i{
+                    background-position: -368px -47px;
+                }
+                &.weibo-q{
+                    background-position: -264px -231px;
+                }
+                &.wechat-i{
+                    background-position: -368px -84px;
+                }
+                &.wechat-q{
+                    background-position: -350px -231px;
+                }
+            }
+        }
+    }
+    .copyright{
+        background-color: #82c353;
+        font: normal 15px/38px "微软雅黑";
+        color: @white-color;
+        margin-top: 36px;
+    }
 }
 

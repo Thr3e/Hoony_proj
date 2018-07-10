@@ -6,23 +6,35 @@ html,body{
     height: 100%;
     width: 100%;
     min-width: 1200px;
+    color: #333;
 }
 a{
+    display: block;
     text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+ul{
+    list-style: none;
 }
 .wrap1200{
     width: 1200px;
     margin: 0 auto;
 }
+.wrap720{
+    width: 720px;
+    margin: 0 auto;
+}
 .clearFix{
-    zoom: 0;
+    zoom: 1;
 }
 .clearFix::after{
     content: '';
     clear: both;
     display: block;
     height: 0;
-    overflow: hidden;
+    visibility: hidden;
 }
 .fl{
     float: left;

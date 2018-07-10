@@ -21,10 +21,10 @@ exports.config = [
         filename: "static/pages/carts.html"
     }),
     new htmlWebpackPlugin({
-        template: "./src/pages/login.html",
+        template: "./src/pages/ljh_login.html",
         inject: true,
         chunks: ["login"],
-        filename: "static/pages/login.html"
+        filename: "static/pages/ljh_login.html"
     }),
     new htmlWebpackPlugin({
         template: "./src/pages/more.html",

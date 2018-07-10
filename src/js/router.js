@@ -7,7 +7,7 @@ $(function() {
             'static/pages/storage.html',
             'static/pages/more.html',
             'static/pages/carts.html',
-            'static/pages/login.html',
+            'static/pages/ljh_login.html',
             'static/pages/userinfo.html',
             'index.html'
         ];

@@ -1,12 +1,168 @@
-@color : #3d3d3d;
-
-#title {
-    color: @color;
-    margin: 50px 0;
-    text-align: center;
+@keyframes img_scale{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    90%{
+        transform: scale(1.27);
+        opacity: 0.8;
+    }
+    100%{
+        transform: scale(1.3);
+        opacity: 0;
+    }
 }
 
-img.test{
-    display: block;
-    margin: 20px auto;
+
+//主内容
+main{
+    width: 100%;
+    margin: 0 auto;
 }
+.furniture{
+    width: 100%;
+    margin: 30px auto;
+    .furniture_title{
+        width: 360px;
+        height: 30px;
+        margin: 30px auto;
+        background: url("../images/common/sprites.png") no-repeat;
+        background-position: 0px 0px;
+        background-size: cover;
+    }
+    .suite{
+        width: 100%;
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        .carousel, 
+        .desk,
+        .tables > div{
+            overflow: hidden;
+            box-sizing: border-box;
+            border: 1px solid rgb(184, 182, 182);
+        }
+        .carousel{
+            width: 65.5%;
+            height: 390px;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            .carousel-img{
+                width: 100%;
+                height: inherit;
+                position: relative;
+                img{
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                }
+                .show {
+                    opacity: 1;
+                    z-index: 10;
+                    animation: img_scale 4s linear forwards;
+                }
+            }
+            .idots{
+                width: 300px;
+                height: 10px;
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                z-index: 10;
+                span{
+                    display: inline-block;
+                    height: 16px;
+                    width: 16px;
+                    margin: 0 5px;
+                    border: 2px solid #fff;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    background: transparent;
+                    transition: background .35s linear;
+                    cursor: pointer;
+                }
+                .on{
+                    background: #fff;
+                }
+            }
+
+        }
+
+        .desk{
+            width: 31%;
+            height: 390px;
+            // border: 1px solid red;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+            }
+        }
+
+        .tables{
+            margin-top: 40px;
+            width: 31%;
+            height: 805px;
+            overflow: hidden;
+            position: relative;
+            .sub{
+                width: 100%;
+                height: 380px;
+                overflow: hidden;
+            }
+            .tables_bot{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            
+        }
+        #roll{
+            margin-top: 40px;
+            width: 31%;
+            height: 380px;
+            border: 1px solid rgb(184, 182, 182);
+        }
+        .sell{
+            margin-top: 40px;
+            width: 65%;
+            height: 380px;
+            border: 1px solid rgb(184, 182, 182);
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;            
+            }
+        }
+    }
+
+}
+.swiper-container{
+    width: 65.5%;
+    height: 390px;
+    border: 1px solid red;
+    .swiper-wrapper{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .swiper-slide{
+            width: 100%;
+            height: 100%;
+        }
+        .slide1{
+            background: url("../images/index/example_1.jpg") center center;
+        }
+        .slide2{
+            background: url("../images/index/example_2.jpg") center center;
+        }
+        .slide3{
+            background: url("../images/index/example_3.jpg") center center;
+        }
+    }
+}
+

@@ -1,4 +1,22 @@
+
+const Tool = require('./hcx_tools');
+
 function loadCommon(){
+    let tool     = new Tool(),
+        loginStr = '',
+        curUser  = {},
+        cartData = tool.getCurCartData(),
+        emptyCart= true;
+    if (sessionStorage.curUser) {
+        curUser = JSON.parse(sessionStorage.curUser);
+        loginStr = `<a href="#" class="login-btn" data-status="loged">
+                        ${curUser.username}, 你好!</a>`
+    }else{
+        loginStr = `<a href="#" class="login-btn" data-status="login"></a>`
+    }
+
+    if(cartData.length !== 0) emptyCart = false;
+
     let headerStr = `
     <div class="wrap1200">
             <div class="banner-title">
@@ -16,9 +34,9 @@ function loadCommon(){
                     </form>
                 </div>
                 <div class="carts-login">
-                    <a href="#" class="login"></a>
+                    ${loginStr}
                     <i class="partition"></i>
-                    <a href="#" class="carts"></a>
+                    <a href="#" class="carts ${emptyCart? 'empty':'not-empty'}"></a>
                 </div>
             </div>
         </div>

@@ -1,7 +1,4 @@
-
-
 //导入模块
-const tools = require('./hcx_tools');
 const loader = require('./hcx_loadhtml');
 //引入模块
 import '../less/hcx_normalize.less';

@@ -6,9 +6,9 @@ $(function() {
             'static/pages/beds.html',
             'static/pages/storage.html',
             'static/pages/more.html',
-            'static/pages/carts.html',
+            'static/pages/ljh_carts.html',
             'static/pages/ljh_login.html',
-            'static/pages/userinfo.html',
+            'static/pages/ljh_userinfo.html',
             'index.html'
         ];
     urls = urls.map(url => {
@@ -16,18 +16,18 @@ $(function() {
     })
     //点击事件
     $('.list-title').click ((event)=>{
-        let index = $(event.currentTarget).index();
+        let index = $(event.currentTarget).parent().index();
         location.href = urls[index];
     })
     $('.carts').click((event) => {
         location.href = urls[5];
     })
-    $('.login').click((event) => {
+    $('.login-btn').click((event) => {
         let idx = 0;
         if ($(event.currentTarget).attr('data-status') === 'login'){
-            idx = 7;
-        } else {
             idx = 6;
+        } else {
+            idx = 7;
         }
         location.href = urls[idx];
     })

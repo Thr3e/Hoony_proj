@@ -1,7 +1,26 @@
-function Tool() {}
-function setTitle() {
-    document.querySelector("#title").textContent = "hello,webpack";
+class Tool {
+
+    constructor(){};
+
+    getCurCartData(){
+        let curCart = [];
+        if (sessionStorage.curUser) {
+            let curUser = JSON.parse(sessionStorage.curUser),
+                cartList = [];
+            if(localStorage.userCart){
+                cartList = JSON.parse(localStorage.userCart);
+                $.each(cartList, (idx, val) => {
+                    if(val.username === curUser.username){
+                        curCart = val.goodlist;
+                    }
+                })
+            }
+        }else{
+            if(sessionStorage.tmpCart)
+            curCart = JSON.parse(sessionStorage.tmpCart).goodlist;
+        }
+        return curCart;
+    }
 }
 
-//导出模块
-exports.setTitle = setTitle;
+module.exports = Tool;

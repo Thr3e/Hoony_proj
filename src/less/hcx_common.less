@@ -61,21 +61,33 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            a.login{
+            a.login-btn{
                 width: 105px;
                 height: 37px;
-                background-position: -230px -146px;
-                &:hover{
-                    background-position: -230px -183px;
+                &[data-status=login]{
+                    background-position: -230px -146px;
+                    &:hover{
+                        background-position: -230px -183px;
+                    }
+                }
+                &[data-status=loged]{
+                    line-height: 37px;
+                    color: @main-color;
+                    background: transparent;
+                    &:hover{
+                        color: #888;
+                    }
                 }
             }
             a.carts{
                 width: 54px;
                 height: 54px;
+            }
+            a.empty{
                 background-position: -21px -377px;
-                &:hover{
-                    background-position: -21px -434px;
-                }
+            }
+            a.not-empty{
+                background-position: -21px -434px;
             }
             i{
                 width: 2px;
@@ -90,7 +102,7 @@
         border-bottom: @main-color 1px solid;
         text-align: center;
         .menu-list{
-            width: 80%;
+            width: 89%;
             .list-item{
                 display: inline-block;
                 vertical-align: top;
@@ -121,6 +133,7 @@
                     }
                     ul{
                         display: block;
+                        z-index: 101;
                     }
                 }
                 ul{

@@ -1,0 +1,173 @@
+#content .wrap1200{
+    margin: 50px auto 200px;
+    h2{
+        padding-top: 40px;
+        font-size: 22px;
+        font-weight: normal;
+    }
+    .checked{
+        background-position: -408px -96px;
+    }
+    
+    .uncheck{
+        background-position: -408px -42px;
+    }
+    
+    .halfcheck{
+        background-position: -408px -69px;
+    }
+}
+
+
+
+.carts_box{
+    width: 1100px;
+    margin: 20px auto;
+    border: 1px solid rgb(126, 126, 126);
+    .no-good{
+        text-align: center;
+        border-top: 1px solid rgb(126,126,126);
+        line-height: 100px;
+        font-size: 24px;
+        letter-spacing: 10px;
+    }
+    .carts_title{
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .choice_a{
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background: url(../images/common/sprites.png) no-repeat;
+        }
+        .carts-msg{
+            width: 200px;
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+    .carts_content{
+        width: 100%;
+        font-size: 16px;
+        color: rgb(96, 91, 91);
+        border-top: 1px solid rgb(126, 126, 126);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .choice_b{
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background: url(../images/common/sprites.png) no-repeat;
+        }
+        .shopping{
+            width: 200px;
+            text-align: center;
+        }
+        .carts_commodity{
+            height: 90px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .carts_com_left{
+                width: 80px;
+                height:50px;
+                img{
+                    width: 80px;
+                    height: 100%;
+                    background-size: cover;
+                } 
+                .home-name{
+                    font-size: 8px;
+                    text-align: center;
+                    
+                }
+            }
+            .carts_com_right{
+                font-size: 8px;
+                margin-left: 20px;
+
+            }
+        }
+        .number{
+            .symbol{
+                padding: 0 10px;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover{
+                    color: green;
+                }
+            }
+            input{
+                padding-left: 15px;
+                box-sizing: border-box;
+                width: 40px;
+                height: 20px;
+                border: 1px solid black;
+                outline: none;
+            }
+        }
+        .del{
+            cursor: pointer;
+            &:hover{
+                color: red;
+            }
+        }
+    }
+}
+// 商品结算
+.total_box{
+    margin: 30px auto;
+    width: 1100px;
+    height: 60px;
+    background: rgb(237, 236, 236);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .choice_a{
+        cursor: pointer;
+        margin-left: 8px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(../images/common/sprites.png) no-repeat;
+    }
+    .con{
+        width: 400px;
+        // border: 1px solid red;
+    }
+    .pitch{
+        .nums{
+            padding: 0 10px;
+            font-size: 18px;
+            color: red;
+        }
+    }
+    .total_wrap{
+        text-align: right;
+        .total_number{
+            font-size: 20px;
+            color: red;
+        }
+    }
+    .to_settle{
+        width: 200px;
+        height: 60px;
+        color: white;
+        font-size: 26px;
+        text-align: center;
+        line-height: 60px;
+        background: rgb(193, 26, 26);
+        transition: all .15s linear;
+        cursor: pointer;
+        &:hover{
+            background: rgb(238, 41, 41);
+        }
+    }
+}
+

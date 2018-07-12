@@ -31,7 +31,7 @@ $(function() {
         }
         location.href = urls[idx];
     })
-    $('.title-logo').click((event) => {
+    $('.title-logo a').click((event) => {
         this.location.href = urls[8];
     })
 })

@@ -22,7 +22,7 @@ $(function(){
         $(".password").text("登录密码");
         $(".confirm").removeClass("hidden");
         $(".forget").addClass("hidden");
-        $(".login_register_btn").text("提交");
+        $(".login_register_btn").html("提&nbsp;&nbsp;&nbsp;&nbsp;交");
         document.title = "户里·家-注册";
        
     });
@@ -37,7 +37,7 @@ $(function(){
         $(".password").text("密码");
         $(".confirm").addClass("hidden");
         $(".forget").removeClass("hidden");
-        $(".login_register_btn").text("登录");
+        $(".login_register_btn").html("登&nbsp;&nbsp;&nbsp;&nbsp;录");
         document.title = "户里·家-登录";
     });
 
@@ -78,14 +78,7 @@ $(function(){
         })
         
         if(isWrong){
-            new window.THRTipTag({
-                type:'alert',
-                title:'提示',
-                alertType:'correct',
-                message:"请输入合法的账号或密码",
-                iconURL:'../plugin/imgs/correct.svg'
-            })
-            return;
+            alert("请输入合法的账号或密码")
         }
 
         if(isLogin){
@@ -95,7 +88,7 @@ $(function(){
                 if(user.password === $(".password-ipt").val()){
                     alert("登录成功");
                     sessionStorage.curUser = JSON.stringify(user);
-                    $('.title-logo').click();
+                    $('.title-logo a').click();
                 }else{
                     alert("输入的账号或密码不正确");
                 }
@@ -109,19 +102,24 @@ $(function(){
                 alert("用户已经存在！");
             }else{
                 alert("注册成功");
-                let dataArr = null;
+                let dataArr = null,
+                    user    = {};
                 if(localStorage.userLogInfo){
                     dataArr = JSON.parse(localStorage.userLogInfo);
                 }else{
                     dataArr = []; 
                 }
-                dataArr.push({
+                user = {
                     username:$(".username-ipt").val(),
                     password:$(".password-ipt").val()
-                });
+                };
+
+                dataArr.push(user);
                 let jsonObj = JSON.stringify(dataArr);
                 localStorage.userLogInfo = jsonObj;
-                $('.title-logo').click();
+                
+                sessionStorage.curUser = JSON.stringify(user);
+                $('.title-logo a').click();
             }
         }
     })

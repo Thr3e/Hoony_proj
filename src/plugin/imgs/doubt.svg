@@ -1,16 +1,16 @@
-<svg width="360" height="360" xmlns="http://www.w3.org/2000/svg">
+<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
 
  <g>
   <title>background</title>
-  <rect x="-1" y="-1" width="362" height="362" id="canvas_background" fill="none"/>
-  <g id="canvasGrid" display="none">
-   <rect id="svg_3" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  <rect fill="none" id="canvas_background" height="82" width="82" y="-1" x="-1"/>
+  <g display="none" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" id="svg_3"/>
   </g>
  </g>
  <g>
   <title>Layer 1</title>
-  <ellipse fill="#ffc93c" stroke-width="0" cx="180.000008" cy="180" id="svg_1" rx="179" ry="180" stroke="#000"/>
-  <path stroke="#000" id="svg_7" d="m196.335333,316.650519l-47.977066,0l0,-44.533481l47.977066,0l0,44.533481zm0,-92.084081l0,14.71796l-47.977066,0l0,-18.134469c0,-54.722775 64.338264,-63.406753 64.338264,-102.300142c0,-17.734607 -16.381908,-31.319793 -37.828336,-31.319793c-22.223658,0 -41.715647,15.849805 -41.715647,15.849805l-27.314732,-32.85237c0,0 26.922716,-27.177925 73.323595,-27.177925c44.076152,0 85.000762,26.418997 85.000762,70.959002c0.020566,62.307843 -67.826841,69.493402 -67.826841,110.257912l0,0.000019z" stroke-opacity="null" stroke-width="0" fill="#f7f7f7"/>
+  <ellipse stroke="#000" ry="40" rx="40" id="svg_1" cy="40" cx="40" stroke-width="0" fill="#ffc93c"/>
+  <path stroke="#000" fill="#f7f7f7" stroke-width="0" stroke-opacity="null" d="m44.126775,71.150512l-11.310408,0l0,-10.151742l11.310408,0l0,10.151742zm0,-20.99126l0,3.35507l-11.310408,0l0,-4.133889c0,-12.474469 15.167498,-14.454047 15.167498,-23.320088c0,-4.042737 -3.861972,-7.139583 -8.917884,-7.139583c-5.239142,0 -9.834303,3.613082 -9.834303,3.613082l-6.439343,-7.488945c0,0 6.346927,-6.195413 17.285755,-6.195413c10.390783,0 20.038602,6.022409 20.038602,16.175639c0.004848,14.203542 -15.989916,15.841544 -15.989916,25.134121l0,0.000004l0,0z" id="svg_7"/>
  </g>
 </svg>

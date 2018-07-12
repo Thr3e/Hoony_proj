@@ -16,39 +16,44 @@ module.exports = {
     module:{
         rules:[
             {
-            test: /\.js$/,
-            exclude:/node_modules/,
-            use: "babel-loader"
-        },
-        {
-            test: /\.(css|less)$/,
-            exclude: /node_modules/,
-            use: ExtractTextWebpackPlugin.extract({
-                fallback: "style-loader",
-                use: [{
-                    loader: "css-loader",
-                    options: {
-                        // 压缩CSS
-                        minimize: true
+                test: /\.js$/,
+                exclude:/node_modules/,
+                use: "babel-loader"
+            },
+            {
+                test: /\.(css|less)$/,
+                exclude: /node_modules/,
+                use: ExtractTextWebpackPlugin.extract({
+                    fallback: "style-loader",
+                    use: [{
+                        loader: "css-loader",
+                        options: {
+                            // 压缩CSS
+                            minimize: true
+                        }
+                    }, "postcss-loader", "less-loader"]
+                })
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader:'url-loader',
+                    options:{
+                        name:'[name].[ext]',
+                        outputPath:'static/images/'
                     }
-                }, "postcss-loader", "less-loader"]
-            })
-        },
-        {
-            test: /\.(png|jpg|jpeg|gif)$/,
-            exclude: /node_modules/,
-            use: {
-                loader:'url-loader',
-                options:{
-                    name:'[name].[ext]',
-                    outputPath:'static/images/'
                 }
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test:/.svg$/,
+                use:'raw-loader'
             }
-        },
-        {
-            test: /\.html$/,
-            loader: 'html-loader'
-        }]
+        ]
     },
     plugins:Plugins.config,
     devServer:{

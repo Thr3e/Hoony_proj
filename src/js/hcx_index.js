@@ -1,5 +1,6 @@
 //导入模块
 const loader = require('./hcx_loadhtml');
+import {THRTipTag} from '../plugin/js/THRTiptag';
 //引入模块
 import '../less/hcx_normalize.less';
 import '../less/hcx_common.less';
@@ -8,6 +9,13 @@ import '../less/ljh_index.less'
 $(function(){
 
     loader.loadCommon();
+
+    // new THRTipTag({
+    //     type:'alert',
+    //     title:'提示',
+    //     alertType:'error',
+    //     message:"请输入合法的账号或密码",
+    // })
 
     $('.idot').click((event) => {
         $(event.currentTarget).addClass("on").siblings('.on').removeClass('on');

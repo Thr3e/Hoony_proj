@@ -17,30 +17,53 @@ $(function(){
         }
     })
 
+    $('.page-title').click((e) => {
+        let $this = $(e.currentTarget),
+            idx   = $this.index();
+        $this.siblings().children('a').removeClass('per');
+        $this.children('a').addClass('per');
+        $($('.page-tag')[idx]).addClass('show');
+        $($('.page-tag')[idx]).siblings().removeClass('show');
+
+    })
+
+    $('.downward').click((e) => {
+        let $this = $(e.currentTarget);
+        $this.siblings('.drop_number_box').addClass('show');
+    })
+    $('.drop_number').click((e) => {
+        let $this = $(e.currentTarget);
+        $this.parent().siblings('.numbers').text($this.text());
+        $this.parent().removeClass('show');
+    })
+    $('.drop_number_box').mouseleave((e) => {
+        let $this = $(e.currentTarget);
+        $this.removeClass('show');
+    })
+
 });
 
 let loadingHtml = (keyword,response) =>{
     switch(keyword){
        case "good_system" :{
         let datas = response["systemInfo"];
-    let htmlStr = '';
-    datas.forEach((data) => {
-        htmlStr +=`
-        <div class="system_box">
-        <div class="system_left">
-        <p class="system_text">${data.text}
-        </p>
-        <p class="system_time">${data.time}</p>
-    </div>
-    <div class="system_right">
-        <div class="sign_box">
-        </div>
-        <p class="sign">${data.sign}</p>
-    </div>
-    </div>  
-        `
-    });
-    $(".box").html(htmlStr);
+        let htmlStr = '';
+        datas.forEach((data) => {
+            htmlStr +=`
+            <div class="system_box">
+                <div class="system_left">
+                    <p class="system_text">${data.text}
+                    </p>
+                    <p class="system_time">${data.time}</p>
+                </div>
+                <div class="system_right">
+                    <div class="sign_box">
+                    </div>
+                    <p class="sign">${data.sign}</p>
+                </div>
+            </div>`
+        });
+        $(".box").html(htmlStr);
     }break;
     case "good_order" :{
         let orderData = response["orderInfo"];

@@ -2,7 +2,7 @@ import '../less/hcx_normalize.less';
 import '../less/hcx_common.less';
 import '../plugin/css/THRTipTag.css';
 import '../less/ljh_login.less';
-
+import {THRTipTag} from '../plugin/js/THRTiptag'
 
 require ("../plugin/js/THRTiptag.js");
 const loader = require('./hcx_loadhtml');
@@ -78,7 +78,17 @@ $(function(){
         })
         
         if(isWrong){
-            alert("请输入合法的账号或密码")
+            new THRTipTag({
+                type:'alert',
+                title:'糟糕',
+                alertType:'doubt',
+                message:"请输入合法的账号或密码",
+                confTitle:'知道了',
+                confCallBack:function(){
+                    $('input').val('');
+                }
+            })
+            return;
         }
 
         if(isLogin){
@@ -86,22 +96,54 @@ $(function(){
             if(isData($(".username-ipt").val())){
                 let user = isData($(".username-ipt").val());
                 if(user.password === $(".password-ipt").val()){
-                    alert("登录成功");
+                    new THRTipTag({
+                        title:'登陆成功',
+                        alertType:'correct',
+                        message:`${user.username}欢迎回来`,
+                        autoClose:1000
+                    })
                     sessionStorage.curUser = JSON.stringify(user);
-                    $('.title-logo a').click();
+                    setTimeout(() => {
+                        $('.title-logo a').click();
+                    }, 1200);
                 }else{
-                    alert("输入的账号或密码不正确");
+                    new THRTipTag({
+                        type:'alert',
+                        title:'提示',
+                        alertType:'error',
+                        message:`输入的账号或密码不正确`,
+                        confCallBack:function(){
+                            $('input').val('');
+                        }
+                    })     
                 }
             }else {
-                alert("去注册");
+                new THRTipTag({
+                    type:'confirm',
+                    title:'注册提示',
+                    alertType:'error',
+                    message:`你还没有账号`,
+                    confTitle:'去注册',
+                    confCallBack:function(){
+                        $('input').val('');
+                        $(".go_register").click();
+                    }
+                })
             }
 
         }else{
             //注册
             if(isData($(".username-ipt").val())){
-                alert("用户已经存在！");
+                new THRTipTag({
+                    type:'alert',
+                    title:'提示',
+                    alertType:'error',
+                    message:`用户已经存在！`,
+                    confCallBack:function(){
+                        $('input').val('');
+                    }
+                })
             }else{
-                alert("注册成功");
                 let dataArr = null,
                     user    = {};
                 if(localStorage.userLogInfo){
@@ -118,8 +160,16 @@ $(function(){
                 let jsonObj = JSON.stringify(dataArr);
                 localStorage.userLogInfo = jsonObj;
                 
+                new THRTipTag({
+                    title:'注册成功',
+                    alertType:'correct',
+                    message:`${user.username}欢迎加入`,
+                    autoClose:1000
+                })
                 sessionStorage.curUser = JSON.stringify(user);
-                $('.title-logo a').click();
+                setTimeout(() => {
+                    $('.title-logo a').click();
+                }, 1200);
             }
         }
     })

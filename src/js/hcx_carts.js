@@ -1,6 +1,7 @@
 import '../less/hcx_normalize.less';
 import '../less/hcx_common.less';
-import '../less/ljh_carts.less'
+import '../less/ljh_carts.less';
+import {THRTipTag} from '../plugin/js/THRTiptag';
 
 const Tool   = require('./hcx_tools');
 const loader = require('./hcx_loadhtml');
@@ -10,6 +11,14 @@ $(function(){
     let tool = new Tool();
     let curData = tool.getCurCartData();
     if(curData) setHtml(curData);
+    if(!sessionStorage.curUser) {
+        new THRTipTag({
+            title:'温馨提示',
+            alertType:'message',
+            message:"登陆后可以保存你的购物车记录哦~！",
+            autoClose:2000
+        })
+    }
     
     setTimeout(() => {
         $('input').blur((e) => {
@@ -107,7 +116,6 @@ function setHtml(data){
             </div>`
         })
     }else{
-        alert('登陆后可以保存你的购物车记录哦~！')
         carthtml = `<div><p class="no-good">购物车空空如也~</p></div>`
     }
 

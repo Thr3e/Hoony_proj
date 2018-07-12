@@ -20,5 +20,54 @@
         "time":"2015-8-11 22:48:26",
         "sign":"标记"
     }
-   ]
+   ],
+   "orderInfo":[
+       {
+           "img":"examle_0.jpg",
+           "price":"￥698",
+           "Otime":"2015-08-02",
+           "deliver":"2015-08-03",
+           "state":"送货中"
+       },
+       {
+        "img":"examle_0.jpg",
+        "price":"￥698",
+        "Otime":"2015-08-02",
+        "deliver":"2015-08-03",
+        "state":"送货中"
+    },
+    {
+        "img":"examle_0.jpg",
+        "price":"￥698",
+        "Otime":"2015-08-02",
+        "deliver":"2015-08-03",
+        "state":"送货中"
+    },
+    {
+        "img":"example_0.jpg",
+        "price":"￥698",
+        "Otime":"2015-08-02",
+        "deliver":"2015-08-03",
+        "state":"送货中"
+    }
+   ],
+  "sellInfo":[
+    {
+        "money":"￥620",
+        "submit_time":"2015-08-02",
+        "issued":"2015-08-03",
+        "storage":"户里",
+        "status":"售卖中",
+        "whether":"否"
+    },
+    {
+        "money":"￥620",
+        "submit_time":"2015-08-02",
+        "issued":"2015-08-03",
+        "storage":"自留",
+        "status":"已售出",
+        "whether":"是"
+    }
+]
+
 }

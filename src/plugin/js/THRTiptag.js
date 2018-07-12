@@ -59,7 +59,7 @@ class THRTipTag {
         this.cancelBtn && this.addEvent(this.cancelBtn, "click", this.btnClick.bind(this));
         this.closeBtn  && this.addEvent(this.closeBtn , "click", this.btnClick.bind(this));
 
-        document.body.style.cssText = "overflow: hidden;";
+        // document.body.style.cssText = "overflow: hidden;";
         // 判断是否自动关闭
         this.config.autoClose && setTimeout(this.close, this.config.autoClose);
     };
@@ -85,8 +85,6 @@ class THRTipTag {
         setTimeout(function(){
             this.mainWrap.className = 'appear';
             if (!config.message) (_this.getEl("tiptag-content")).style.display = "none";
-            // this.alertImg.style.cssText = "background-image : url(" + config.iconURL + ")";
-            // this.closeBtn.style.cssText = "background-image : " + clsSvg;
         }.bind(this), 10);
     }
 
@@ -142,7 +140,7 @@ class THRTipTag {
         tiptag.style.cssText = "background : transparent";
         setTimeout(function(){
             document.body.removeChild(tiptag);
-            document.body.style.cssText = "overflow: auto;";
+            // document.body.style.cssText = "overflow: auto;";
         }, 200);
     }
 

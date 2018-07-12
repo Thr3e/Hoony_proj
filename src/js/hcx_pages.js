@@ -2,6 +2,8 @@ import '../less/hcx_normalize.less';
 import '../less/hcx_common.less';
 import '../less/hcx_pages.less'
 
+import {THRTipTag} from '../plugin/js/THRTiptag'
+
 const loader = require('./hcx_loadhtml');
 $(function(){
     loader.loadCommon();
@@ -22,6 +24,7 @@ $(function(){
             $.each(localCart, (idx, val) => {
                 if (val.username === curName){
                     val['goodlist'].push(goodData);
+                    val['goodlist'] = arrNoRepeat(val['goodlist']);
                     hasData = true;
                 }
             })
@@ -32,7 +35,6 @@ $(function(){
                 });
             }
 
-            localCart.goodlist = arrNoRepeat(localCart.goodlist);
             localStorage.userCart = JSON.stringify(localCart);
         } else{
             let tmpCart = {username:"tmpUser", goodlist:[]};
@@ -44,7 +46,13 @@ $(function(){
 
             sessionStorage.tmpCart = JSON.stringify(tmpCart);
         }
-        alert('成功加入购物车')
+        
+        new THRTipTag({
+            title:'温馨提示',
+            alertType:'correct',
+            message:"成功加入购物车",
+            autoClose:800
+        })
     })
 });
 
@@ -61,6 +69,5 @@ function arrNoRepeat(arr){
             newArr[tmpObj[val.title] - 1].count += 1;
         }
     })
-
     return newArr;
 }

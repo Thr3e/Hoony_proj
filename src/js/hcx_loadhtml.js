@@ -45,7 +45,7 @@ function loadCommon(){
                 <div class="menu-list fl">
                     <ul class="mainlist">
                         <li class="list-item">
-                            <a class="list-title">
+                            <a class="list-title" id="sofas">
                                 沙发&nbsp;SOFAS
                             </a>
                             <ul class="sublist">
@@ -57,7 +57,7 @@ function loadCommon(){
                             </ul>
                         </li>
                         <li class="list-item">
-                            <a class="list-title">
+                            <a class="list-title" id="tables">
                                 桌椅&nbsp;TABLES/CHAIR
                             </a>
                             <ul class="sublist">
@@ -69,7 +69,7 @@ function loadCommon(){
                             </ul>
                         </li>
                         <li class="list-item">
-                            <a class="list-title">
+                            <a class="list-title" id="beds">
                                 床&nbsp;BEDS
                             </a>
                             <ul class="sublist">
@@ -79,7 +79,7 @@ function loadCommon(){
                             </ul>
                         </li>
                         <li class="list-item">
-                            <a class="list-title">
+                            <a class="list-title" id="storage">
                                 柜&nbsp;STORAGE
                             </a>
                             <ul class="sublist">
@@ -90,7 +90,7 @@ function loadCommon(){
                             </ul>
                         </li>
                         <li class="list-item">
-                            <a class="list-title">
+                            <a class="list-title" id="more">
                                 更多&nbsp;MORE
                             </a>
                             <ul class="sublist">

@@ -4,5 +4,6 @@ exports.config = {
     carts: './src/js/hcx_carts.js',
     login: './src/js/ljh_login.js',
     userinfo: './src/js/ljh_userinfo.js',
-    pages:'./src/js/hcx_pages.js'
+    pages:'./src/js/hcx_pages.js',
+    detail:'./src/js/hcx_detail.js'
 }

@@ -5,69 +5,36 @@ import '../less/hcx_pages.less'
 import {THRTipTag} from '../plugin/js/THRTiptag'
 
 const loader = require('./hcx_loadhtml');
+const GoodData = require('../data/good-info');
+const Tool = require('./hcx_tools');
 $(function(){
     loader.loadCommon();
-    $('.add-cart').click((e) => {
-        let _this = e.currentTarget;
-        let goodData = {};
-        goodData.image = $(_this).parent().siblings("a").find("img").attr('src');
-        goodData.title = $(_this).siblings('.good-name').text();
-        goodData.price = $(_this).siblings('.good-price').text();
-        goodData.count = 1;
-        if (sessionStorage.curUser) {
-            let curName = JSON.parse(sessionStorage['curUser']).username;
-            let localCart = [];
-            let hasData = false;
-            if(localStorage.userCart) {
-                localCart = JSON.parse(localStorage.userCart);
-            }
-            $.each(localCart, (idx, val) => {
-                if (val.username === curName){
-                    val['goodlist'].push(goodData);
-                    val['goodlist'] = arrNoRepeat(val['goodlist']);
-                    hasData = true;
-                }
-            })
-            if(!hasData){
-                localCart.push({
-                    username:curName,
-                    goodlist:[goodData]
-                });
-            }
 
-            localStorage.userCart = JSON.stringify(localCart);
-        } else{
-            let tmpCart = {username:"tmpUser", goodlist:[]};
-            if (sessionStorage.tmpCart) tmpCart = JSON.parse(sessionStorage.tmpCart)
-
-            tmpCart['goodlist'].push(goodData);
-
-            tmpCart.goodlist = arrNoRepeat(tmpCart.goodlist);
-
-            sessionStorage.tmpCart = JSON.stringify(tmpCart);
-        }
-        
-        new THRTipTag({
-            title:'温馨提示',
-            alertType:'correct',
-            message:"成功加入购物车",
-            autoClose:800
-        })
-    })
+    loadListHtml();
+    let tool = new Tool();
+    setTimeout(() => {
+        require('./router')
+        tool.addCart();
+    }, 100)
+    
 });
 
-function arrNoRepeat(arr){
-    let tmpObj = {},
-        newArr = [],
-        index  = 1;
-    $.each(arr, (idx, val) => {
-        if(!tmpObj[val.title]){
-            tmpObj[val.title] = index;
-            newArr.push(val);
-            index += 1;
-        }else{
-            newArr[tmpObj[val.title] - 1].count += 1;
-        }
+function loadListHtml(){
+    let htmlStr = '',
+        pageid  = location.href.slice(location.href.lastIndexOf('/') + 1, location.href.lastIndexOf('.'))
+        console.log(pageid);
+    
+    $.each(GoodData[pageid], (idx, val) => {
+        htmlStr += `
+        <div class="good-info" data-idx="${idx}">
+            <a href="#" class="go_detail"><img src=${val.img}></a>
+            <div class="good-title">
+                <p class="good-name">${val.title}</p>
+                <p class="good-price">${val.price}</p>
+                <div class="add-cart">加入购物车</div>
+            </div>
+        </div>`
     })
-    return newArr;
+    $('.good-wrap').html(htmlStr);
+
 }

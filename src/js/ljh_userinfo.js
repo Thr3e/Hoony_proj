@@ -2,6 +2,7 @@ import '../less/hcx_normalize.less';
 import '../less/hcx_common.less';
 import '../less/ljh_userinfo.less';
 import img from '../images/pages/example_0.jpg';
+import {THRTipTag} from '../plugin/js/THRTiptag'
 
 const loader = require('./hcx_loadhtml')
 $(function(){
@@ -20,11 +21,29 @@ $(function(){
     $('.page-title').click((e) => {
         let $this = $(e.currentTarget),
             idx   = $this.index();
+            if (idx === 1){
+                $(".delete").on("click",function(e){
+                    new THRTipTag({
+                        type:'confirm',
+                        title:'删除订单',
+                        alertType:'doubt',
+                        message:"你是否要删除该订单？删除后不再显示该订单",
+                        confTitle:'确定删除',
+                        confCallBack:function(){
+                            e.currentTarget.parentElement.parentElement.parentElement.remove() 
+                        }
+                    })
+                })
+            }else if(idx === 4){
+                $('.system_right').click((e) => {
+                    let $this = $(e.currentTarget);
+                    $this.children('.sign_box').toggleClass('check');
+                })
+            }  
         $this.siblings().children('a').removeClass('per');
         $this.children('a').addClass('per');
         $($('.page-tag')[idx]).addClass('show');
         $($('.page-tag')[idx]).siblings().removeClass('show');
-
     })
 
     $('.downward').click((e) => {
@@ -39,8 +58,20 @@ $(function(){
     $('.drop_number_box').mouseleave((e) => {
         let $this = $(e.currentTarget);
         $this.removeClass('show');
+    }); 
+    $('#unlog').click((e) => {
+        new THRTipTag({
+            type:'confirm',
+            title:'退出登录',
+            alertType:'doubt',
+            message:"你真的确定要退出吗",
+            confTitle:'确定',
+            confCallBack:function(){
+                sessionStorage.removeItem('curUser');
+                $('.title-logo a').click();
+            }
+        })
     })
-
 });
 
 let loadingHtml = (keyword,response) =>{
@@ -90,7 +121,7 @@ let loadingHtml = (keyword,response) =>{
                         <p class="handle_sty">
                             <span class="sty">售后</span>
                             <span>|</span>
-                            <span class="sty">删除</span>
+                            <span class="sty delete">删除</span>
                         </p>
                     </div>  
                 </div>
@@ -123,7 +154,7 @@ let loadingHtml = (keyword,response) =>{
                         <p class="handle_sty">
                             <span class="sty">售后</span>
                             <span>|</span>
-                            <span class="sty">删除</span>
+                            <span class="sty delete">删除</span>
                         </p>
                     </div>  
                 </div>

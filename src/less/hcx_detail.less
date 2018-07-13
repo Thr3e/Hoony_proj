@@ -1,0 +1,153 @@
+#content{
+    .cart{
+        position: fixed;
+        color:#eee;
+        background: #f90;
+        width: 64px;
+        height: 64px;
+        bottom: 128px;
+        right: 0;
+        text-align: center;
+        line-height: 64px;
+    }
+    h1.title{
+        margin: 100px auto 40px;
+        letter-spacing: 5px;
+        color: #333;
+    }
+    a.go_index{
+        color: #999;
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    .detail{
+        .img-wrap {
+            position: relative;
+            width: 40%;
+            text-align: center;
+            .main-img {
+                width: 480px;
+                position: relative;
+                cursor: move;
+                .cover{
+                    width: 120px;
+                    height: 120px;
+                    background: rgba(250, 154, 10, 0.4);
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                img{
+                    display: block;
+                    width: 100%;
+                    margin: auto;
+                }
+            }
+            .zoom-img {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 500px;
+                height: 500px;
+                overflow: hidden;
+                border: 1px solid #333;
+                img{
+                    display: block;
+                    width: 400%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .img-flow{
+                padding: 10px 0;
+                border: 1px solid #999;
+                border-left: 0;
+                border-right:0;
+                margin: 30px 0;
+                display: flex;
+                justify-content: space-around;
+                img{
+                    display: inline-block;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid #999;
+                    cursor: pointer;
+                    &.choose{
+                        border-color: rgb(26, 238, 26); 
+                    }
+                }
+                
+            }
+        }
+        .detail-wrap{
+            width: 50%;
+            margin-bottom: 100px;
+            .title{
+                padding: 50px 10px;
+                box-sizing: border-box;
+                margin-bottom: 60px;
+                border: 2px solid #ff2020;
+                line-height: 20px;
+                border-left: 0;
+                border-right:0;
+                font-size: 24px;
+            }
+            p{
+                color: #333;
+            }
+            .price{
+                font-size: 22px;
+                letter-spacing: 3px;
+                margin-bottom: 50px;
+                span{
+                    color:rgb(196, 43, 43);
+                }
+            }
+            .info{
+                margin-bottom: 150px;
+            }
+            .count{
+                border-top: 1px solid #999;
+                font-size: 18px;
+                line-height: 30px;
+                padding-top: 30px;
+                input{
+                    height: 20px;
+                    width: 30px;
+                    margin-left: 30px;
+                    padding-left: 20px;
+                    font-size: 19px;
+                }
+            }
+            .btn-wrap{
+                margin-top: 60px;
+                .add-cart{
+                    width: 30%;
+                    display: inline-block;
+                    text-align: center;
+                    margin-right: 30px;
+                    background: rgb(247, 72, 72);
+                    border: 1px solid rgb(247, 72, 72);
+                    color: #eee;
+                    font-size: 18px;
+                    padding: 20px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    &:first-child{
+                        background: #fcfcfc;
+                        color: rgb(247, 72, 72);
+                        &:hover{
+                            color: #eee;
+                        }
+                    }
+                    &:hover{
+                        background: rgb(253, 135, 88);
+                    }
+                }
+            }
+            
+        }
+    }
+}

@@ -56,4 +56,10 @@ exports.config = [
         chunks: ["userinfo"],
         filename: "static/pages/ljh_userinfo.html"
     }),
+    new htmlWebpackPlugin({
+        template:"./src/pages/hcx_detail.html",
+        inject:true,
+        chunks:["detail"],
+        filename:"static/pages/hcx_detail.html"
+    })
 ]

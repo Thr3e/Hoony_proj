@@ -9,7 +9,8 @@ $(function() {
             'static/pages/ljh_carts.html',
             'static/pages/ljh_login.html',
             'static/pages/ljh_userinfo.html',
-            'index.html'
+            'index.html',
+            'static/pages/hcx_detail.html'
         ];
     urls = urls.map(url => {
         return baseUrl + url;
@@ -23,15 +24,16 @@ $(function() {
         location.href = urls[5];
     })
     $('.login-btn').click((event) => {
-        let idx = 0;
+        let idx = 7;
         if ($(event.currentTarget).attr('data-status') === 'login'){
             idx = 6;
-        } else {
-            idx = 7;
         }
         location.href = urls[idx];
     })
     $('.title-logo a').click((event) => {
         this.location.href = urls[8];
+    })
+    $('.go_detail').click((e) => {
+        this.location.href = urls[9] + "?type=" + this.location.href.slice(this.location.href.lastIndexOf('/') + 1, this.location.href.lastIndexOf('.')) + "&id=" + $(e.currentTarget).parent().attr('data-idx');
     })
 })

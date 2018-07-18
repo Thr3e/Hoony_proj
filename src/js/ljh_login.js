@@ -67,6 +67,9 @@ $(function(){
             }
         }
     });
+    $(".go_register").on("click",function(){
+        $(".error").addClass("hidden");
+    });
 
     $(".login_register_btn").on("click",() =>{
         $("input").blur();

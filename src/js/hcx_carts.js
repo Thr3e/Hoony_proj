@@ -73,15 +73,49 @@ function setTotalPrice(){
 }
 
 function setBtnFunc() {
+    let tool = new Tool();
     $('.del').click((e) => {
         
         let tool = new Tool();
         let $this = $(e.currentTarget),
             idx   = $this.parent().index(),
             cartData = tool.getCurCartData();
-        cartData.splice(idx,1);
-        tool.setCurCartData(cartData);
-        setHtml(cartData);
+        new THRTipTag({
+            type:'confirm',
+            title:'删除确认',
+            alertType:'doubt',
+            message:"你真的确定要删除这件商品吗",
+            cancelTitle:'手滑了',
+            confTitle:'确定',
+            confCallBack:function(){
+                cartData.splice(idx,1);
+                tool.setCurCartData(cartData);
+                setHtml(cartData);
+            }
+        })
+    })
+    $('.del-all').click((e) => {
+        new THRTipTag({
+            type:'confirm',
+            title:'删除确认',
+            alertType:'doubt',
+            message:"你真的确定要删除这些商品吗",
+            cancelTitle:'手滑了',
+            confTitle:'确定',
+            confCallBack:function(){
+                let tmpData = tool.getCurCartData();
+                $.each($('.choice_b.checked'), (idx, val) => {
+                    let curIdx = $(val).parent().index();
+                    tmpData[curIdx] = '';
+                })
+                $.each(tmpData, (idx, val) => {
+                    if (!val) tmpData.splice(idx, 1);
+                })
+        
+                tool.setCurCartData(tmpData);
+                setHtml(tmpData);
+            }
+        })
     })
     $('input').blur((e) => {
         let $this  = $(e.currentTarget),
@@ -98,7 +132,7 @@ function setBtnFunc() {
         if($this.hasClass('plus-btn')){
             $input.val(parseInt($input.val()) + 1);
         }else{
-            $input.val(parseInt($input.val()) - 1);
+            $input.val(parseInt($input.val()) - 1 > 0 ? parseInt($input.val()) - 1 : 1);
         }
         $input.blur();
     });
@@ -107,9 +141,11 @@ function setBtnFunc() {
         if($this.hasClass('checked')){
             $('.choice_b').attr('class', 'choice_b uncheck');
             $('.choice_a').attr('class', 'choice_a uncheck');
+            $('.nums').text('0')
         }else{
             $('.choice_b').attr('class', 'choice_b checked');
             $('.choice_a').attr('class', 'choice_a checked');
+            $('.nums').text($('.choice_b.checked').length)
         }
         setTotalPrice();
     })
@@ -127,6 +163,8 @@ function setBtnFunc() {
             if (!isHalf){
                 $('.choice_a').attr('class', 'choice_a uncheck');
             }
+            
+            $('.nums').text(parseInt($('.nums').text()) - 1)
         }else{
             let isHalf = false
             $this.attr('class', 'choice_b checked');
@@ -139,6 +177,8 @@ function setBtnFunc() {
             if (!isHalf){
                 $('.choice_a').attr('class', 'choice_a checked');
             }
+            
+            $('.nums').text(parseInt($('.nums').text()) + 1)
         }
         setTotalPrice();
     })
